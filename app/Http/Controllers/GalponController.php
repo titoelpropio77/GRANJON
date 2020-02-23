@@ -234,7 +234,23 @@ public function update_galpon(Request $request) {
     }
 
     public function mostrar_tem(Request $request){
-        $temperatura=DB::select("select temperatura from temperatura");
+        exec("mode COM3 BAUD=9600 PARITY=N data=8 stop=1 xon=off");
+        $nombre_fichero = "COM3";
+        $fp = @fopen ("COM3", "r");
+        if (!$fp) 
+        {
+           $status = "No conectado";
+           $temperatura=DB::select("select temperatura from temperatura");
+        } else {
+           $buffer = fgets($fp);
+           $temperatura = [
+            [ 'temperatura' => intval( $buffer) ]
+           ];
+           // $temperatura=DB::select("select temperatura from temperatura");
+           fclose($fp);
+
+        }
+        
         return response()->json($temperatura);
     }
     
