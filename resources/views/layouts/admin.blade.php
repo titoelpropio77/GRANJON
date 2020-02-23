@@ -83,8 +83,8 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href=""  >Galpones<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="{!!URL::to('fases')!!}"> FASES</a></li>
-                    <li><a href="{!!URL::to('vistagalpon')!!}"> GALPON</a></li>
-                    <li><a href="{!!URL::to('edad')!!}"> EDAD</a></li>
+                    <li><a href="{!!URL::to('vistagalpon')!!}">R. GALPON</a></li>
+                    <li><a href="{!!URL::to('edad')!!}">Gestion de Galpones</a></li>
                
                     <li><a href="{!!URL::to('consumo_alimento')!!}">CONSUMO ALIMENTO</a></li>    
                   </ul>
