@@ -364,3 +364,38 @@
 
 
 
+
+<!--MODAL CONTROL DE PESAJE-->
+<div class="modal fade" id="myModal_pesaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg"  role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="titulo_vacuna" class="modal-title" > CONTROL PESAJE </h3>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+
+            <table class="table table-striped table-bordered table-condensed table-hover">
+                <thead align="center" bgcolor=black style="color: white">
+                    <td>Grupo/Semana</td>
+                    <td>Fecha de Creacion</td>
+                    <td>Estado</td>
+                    <td>Observacion</td>
+                    <td>Acciones</td>
+                </thead>
+
+                
+                <tbody id="tb_grupo_pesaje">
+                
+                </tbody>
+
+            </table>
+ 
+            </div>
+
+            <div class="modal-footer">
+                <button data-dismiss="modal"  class="btn btn-danger ">SALIR</button>
+            </div>
+        </div>
+    </div>
+</div>

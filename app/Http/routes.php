@@ -418,3 +418,14 @@ Route::resource('consumo_vacuna_emergente', 'ConsumoVacunaEmergenteController');
 Route::get('eliminarGrupoEdad/{id}', 'GrupoEdadController@destroy');
 //GRUPO TEMPERATURA 
 Route::get('eliminarGrupoTemperatura/{id}', 'GrupoTemperaturaController@destroy');
+
+
+//Pesaje Galpon
+Route::resource( 'pesaje_galpon','PesajeGalponController' );
+Route::post( 'getControlPesaje', 'PesajeGalponController@getControlPesaje' );
+
+
+
+//Pesaje Galpon
+Route::resource( 'pesaje_galpon_pollita','PesajeGalponPollitaController' );
+Route::post( 'getControlPesajePollita', 'PesajeGalponPollitaController@getControlPesajePollita' );

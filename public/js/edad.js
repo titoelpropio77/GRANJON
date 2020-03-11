@@ -59,25 +59,31 @@ function cargartabla() {
     var tabladatos = $('#datos');
     $.get(route, function (res) {
         $(res).each(function (key, value) {
-            if(value.nombre == 'PONEDORA') {
-                tabladatos.append("<tr align=center><td>GALPON " + value.numero_galpon + "</td><td>" + value.nombre + "</td><td>" + value.edad + "</td>\n\
+            var backgroudColor = value.nombre == 'PONEDORA' ? '' : '#F6E3CE';
+            // if(value.nombre == 'PONEDORA') {
+            //     tabladatos.append("<tr align=center><td>GALPON " + value.numero_galpon + "</td><td>" + value.nombre + "</td><td>" + value.edad + "</td>\n\
+            //     <td>" + value.fecha_inicio + "</td><td>" + value.cantidad_inicial + "</td><td>" + value.cantidad_actual + "</td><td>" + value.total_muerta + "</td>\n\
+            //     <td>\n\
+            //     <button value=" + value.id + " class='btn-sm btn-primary' data-toggle='modal' data-target='#myModaledit' onclick='Cargar(" + value.id_galpon + "," +value.id_edad+ "," +value.id_fase+ "," +value.id_fase_galpon+")' >ACTUALIZAR</button>\n\
+            //     <button class='btn-sm btn-warning' data-toggle='modal' data-target='#myModalTraspaso' onclick='CargarTraspaso(" + value.id_galpon + "," +value.id_edad+ "," +value.id_fase+ "," +value.id_fase_galpon +"," +value.numero_fase +")' >TRASPASO</button>\n\
+            //     <button class='btn-sm btn-info' data-toggle='modal' data-target='#myModal_aumento' onclick='extraer_id_aumento(" + value.id_galpon + "," + value.id_fase_galpon +"," +value.numero_galpon +"," +value.cantidad_actual +")'>AUMENTAR</button>\n\
+            //     <button class='btn-sm btn-danger' data-toggle='modal' data-target='#myModal' onclick='extraer_id(" + value.id_galpon + "," + value.id_fase_galpon +"," +value.numero_galpon +"," +value.id_edad +")'>DAR BAJA</button></center>\n\
+            //     <button class='btn-sm btn-success' data-toggle='modal' data-target='#myModal_Vacunas' onclick='control_de_vacuna("+value.id_edad +")'>CONTROL VACUNAS</button>\n\
+            //     <button class='btn-sm btn-dark' data-toggle='modal' data-target='#myModal_Vacunas' onclick='control_de_pesaje("+value.id_edad +")'>PESAJE</button></td>\n\
+            //     </tr>");
+            // }else {
+            //control_vacuna
+                tabladatos.append("<tr align=center style='background-color : "+ backgroudColor +"'><td>GALPON " + value.numero_galpon + "</td><td>" + value.nombre + "</td><td>" + value.edad + "</td>\n\
                 <td>" + value.fecha_inicio + "</td><td>" + value.cantidad_inicial + "</td><td>" + value.cantidad_actual + "</td><td>" + value.total_muerta + "</td>\n\
                 <td>\n\
                 <button value=" + value.id + " class='btn-sm btn-primary' data-toggle='modal' data-target='#myModaledit' onclick='Cargar(" + value.id_galpon + "," +value.id_edad+ "," +value.id_fase+ "," +value.id_fase_galpon+")' >ACTUALIZAR</button>\n\
                 <button class='btn-sm btn-warning' data-toggle='modal' data-target='#myModalTraspaso' onclick='CargarTraspaso(" + value.id_galpon + "," +value.id_edad+ "," +value.id_fase+ "," +value.id_fase_galpon +"," +value.numero_fase +")' >TRASPASO</button>\n\
                 <button class='btn-sm btn-info' data-toggle='modal' data-target='#myModal_aumento' onclick='extraer_id_aumento(" + value.id_galpon + "," + value.id_fase_galpon +"," +value.numero_galpon +"," +value.cantidad_actual +")'>AUMENTAR</button>\n\
                 <button class='btn-sm btn-danger' data-toggle='modal' data-target='#myModal' onclick='extraer_id(" + value.id_galpon + "," + value.id_fase_galpon +"," +value.numero_galpon +"," +value.id_edad +")'>DAR BAJA</button></center>\n\
-                <button class='btn-sm btn-success' data-toggle='modal' data-target='#myModal_Vacunas' onclick='control_de_vacuna("+value.id_edad +")'>CONTROL VACUNAS</button></td></tr>");
-            }else {//control_vacuna
-                tabladatos.append("<tr align=center style=background-color:#F6E3CE><td>GALPON " + value.numero_galpon + "</td><td>" + value.nombre + "</td><td>" + value.edad + "</td>\n\
-                <td>" + value.fecha_inicio + "</td><td>" + value.cantidad_inicial + "</td><td>" + value.cantidad_actual + "</td><td>" + value.total_muerta + "</td>\n\
-                <td>\n\
-                <button value=" + value.id + " class='btn-sm btn-primary' data-toggle='modal' data-target='#myModaledit' onclick='Cargar(" + value.id_galpon + "," +value.id_edad+ "," +value.id_fase+ "," +value.id_fase_galpon+")' >ACTUALIZAR</button>\n\
-                <button class='btn-sm btn-warning' data-toggle='modal' data-target='#myModalTraspaso' onclick='CargarTraspaso(" + value.id_galpon + "," +value.id_edad+ "," +value.id_fase+ "," +value.id_fase_galpon +"," +value.numero_fase +")' >TRASPASO</button>\n\
-                <button class='btn-sm btn-info' data-toggle='modal' data-target='#myModal_aumento' onclick='extraer_id_aumento(" + value.id_galpon + "," + value.id_fase_galpon +"," +value.numero_galpon +"," +value.cantidad_actual +")'>AUMENTAR</button>\n\
-    <button class='btn-sm btn-danger' data-toggle='modal' data-target='#myModal' onclick='extraer_id(" + value.id_galpon + "," + value.id_fase_galpon +"," +value.numero_galpon +"," +value.id_edad +")'>DAR BAJA</button></center>\n\
-    <button class='btn-sm btn-success' data-toggle='modal' data-target='#myModal_Vacunas' onclick='control_de_vacuna("+value.id_edad +")'>CONTROL VACUNAS</button></td></tr>");
-            }
+                <button class='btn-sm btn-success' data-toggle='modal' data-target='#myModal_Vacunas' onclick='control_de_vacuna("+value.id_edad +")'>CONTROL VACUNAS</button>\n\
+                <a class='btn-sm btn-info'  href='pesaje_galpon/" + value.id_edad + "'>PESAJE</a></td>\n\
+                </tr>");
+            // }
         });
         $('#loading').css("display","none");
     });

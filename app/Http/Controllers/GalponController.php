@@ -50,7 +50,7 @@ $contador=0;
        }
       
        $contador=0;
-        for ($i=0; $i < count($galpon2) ; $i++) { //este es para las vacunas de los galpones 1-8
+        for ($i=0; $i < count($galpon2) ; $i++) { //este es para las vacunas de los galpones 8-16
 
               $verificar=DB::select("SELECT control_vacuna.id as id_control_vacuna,vacuna.precio,vacuna.id, vacuna.edad,vacuna.nombre,vacuna.detalle,".$galpon2[$i]->numero." as galpon,(vacuna.edad - ".$galpon2[$i]->edad.") AS dias FROM vacuna,control_vacuna,edad WHERE edad.id=control_vacuna.id_edad AND vacuna.id=control_vacuna.id_vacuna AND vacuna.edad>=".$galpon2[$i]->edad." AND control_vacuna.estado=1 AND edad.id=".$galpon2[$i]->id_edad."  ORDER BY dias");   
          if (count($verificar) != 0) {
