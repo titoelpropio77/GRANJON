@@ -333,7 +333,8 @@ Route::get('tipogalponcria/{tipe}', 'TraspasoController@chagegalponcria');
 
 //REPORTE BALACE GENERAL
 Route::resource('reportebalance', 'BalanceController@reporte');
-Route::get('lista_balance_egreso/{fecha_inicio}/{fecha_fin}', 'BalanceController@lista_balance_egreso');
+Route::post('lista_balance_egreso', 'BalanceController@lista_balance_egreso');
+// Route::get('lista_balance_egreso/{fecha_inicio}/{fecha_fin}', 'BalanceController@lista_balance_egreso');
 Route::get('lista_balance_ingreso/{fecha_inicio}/{fecha_fin}', 'BalanceController@lista_balance_ingreso');
 
 

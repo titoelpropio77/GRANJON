@@ -5,9 +5,10 @@
 
 
 <div class="login-box" style="border-radius:  1px medium ; border: solid black"  >
+    <?php $result = DB::select('select nombre_sistema from configuracion') ?>
     <center><img  height="200px" src="{{asset('images/granja.PNG')}}" ></center>
     <div class="login-logo">
-        <a ><b>GRANJA HIGA</b></a>
+        <a ><b>GRANJA {{ $result[0]->nombre_sistema }}</b></a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Ingrese sus datos de Acceso</p>

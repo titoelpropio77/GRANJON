@@ -27,6 +27,7 @@
         {!!Html::style('css/bootstrap-select.min.css')!!}
         {!!Html::style('css/alertify.css')!!}
         {!!Html::style('css/default.css')!!}
+        {!!Html::style('plugins/select2/css/select2.css')!!}
       
     </head>
 
@@ -48,11 +49,11 @@
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
                 <li   
-                @if(Auth::user()!=null) style="width: 8%;"
+                @if(Auth::user()!=null) 
                 @endif  
 
                 ><a href="{!!URL::to('galpon')!!}">Ponedora</a></li>
-                <li  @if(Auth::user()!=null) style=" width: 5%;"     @endif ><a href="{!!URL::to('criarecria')!!}">Crias</a></li>
+                <li  @if(Auth::user()!=null)      @endif ><a href="{!!URL::to('criarecria')!!}">Crias</a></li>
 
                  @if(Auth::user()==null) 
                   <li><a href="{!!URL::to('cajadeposito')!!}">Cajas</a></li>
@@ -61,7 +62,7 @@
                   <li><a href="{!!URL::to('cajadeposito_admin')!!}">Cajas</a></li>
                 @endif    
 
-                <li class="dropdown" @if(Auth::user()!=null) style="width: 8%;"  @endif    style="width: 13%;" > 
+                <li class="dropdown" @if(Auth::user()!=null) @endif     > 
                   <a class="dropdown-toggle" data-toggle="dropdown" href="">Ventas<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                       <li><a href="{!!URL::to('ventacaja')!!}">Venta Caja</a></li>
@@ -69,72 +70,66 @@
                   </ul>
                 </li>
 
-                <li><a href="{!!URL::to('compra')!!}">Compra Alimento</a></li>   
-                <li><a href="{!!URL::to('vacuna')!!}">Sanidad</a></li>   
-                 <li><a href="{!!URL::to('silo')!!}"> Silo</a></li>
-                  
-
 
                 @if(Auth::user()!=null) 
-                                
-               
 
                 <li><a href="{!!URL::to('controlalimento')!!}">Control Alimento</a></li>                    
-                <li class="dropdown"    style="width: 10%;"   >
-                  <a class="dropdown-toggle" data-toggle="dropdown" href=""  >Galpones<span class="caret"></span></a>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="">Gestion de Galpones<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="{!!URL::to('fases')!!}"> FASES</a></li>
-                    <li><a href="{!!URL::to('vistagalpon')!!}">R. GALPON</a></li>
+
                     <li><a href="{!!URL::to('edad')!!}">Gestion de Galpones</a></li>
-               
-                    <li><a href="{!!URL::to('consumo_alimento')!!}">CONSUMO ALIMENTO</a></li>    
+                    <li><a href="{!!URL::to('consumo_alimento')!!}">Consumo de Alimento</a></li>    
+                    <li><a href="{!!URL::to('vacuna')!!}">Sanidad(Gest. Vacuna)</a></li>  
+                    <li><a href="{!!URL::to('compra')!!}">Compra de Alimento</a></li> 
                   </ul>
                 </li>
-                    <li><a href="{!!URL::to('alimento')!!}">Alimento</a></li>
                      
                        
                  
-                <li class="dropdown" style="width: 11%;">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="">Caja-Huevo<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><a href="{!!URL::to('maple')!!}"> MAPLE</a></li>
-                      <li><a href="{!!URL::to('tipocaja')!!}"> TIPO CAJAS</a></li>
-                      <li><a href="{!!URL::to('tipohuevo')!!}"> TIPO HUEVOS DESCARTES</a></li> 
-                      <li><a href="{!!URL::to('lista_caja')!!}">LISTA DE CAJAS</a></li>     
-                      <li><a href="{!!URL::to('lista_maple')!!}">LISTA DE HUEVOS DESCARTES</a></li>  
-                  </ul>
-                </li>
-
-              
-
-                <li class="dropdown" style="width: 8%;">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="">Reporte<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><a href="{!!URL::to('reporteponedoras')!!}">REPORTE DE POSTURA HUEVO</a></li>                                
-                      <li><a href="{!!URL::to('reportecaja')!!}">R. VENTA DE CAJAS</a></li>                                      
-                      <li><a href="{!!URL::to('reportehuevo')!!}">R. VENTA DE HUEVOS DESCARTE</a></li>                                
-                      <li><a href="{!!URL::to('reporte_compra')!!}">R.E COMPRA DE ALIMENTOS</a></li>
-                      <li><a href="{!!URL::to('lista_gallinas')!!}">R. DE GALLINAS</a></li>     
-                      <li><a href="{!!URL::to('reportebalance')!!}">R. GENERAL</a></li> 
-                      <li><a href="{!!URL::to('Rgrafico_postura2')!!}">R. Grafico</a></li>     
-
-                  </ul>
-                </li>
-            <li class="dropdown" style="width: 12%;">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="">Administrador<span class="caret"></span></a>
-                  <ul class="dropdown-menu">                              
-                      <li><a href="{!!URL::to('lista_compra')!!}">ANULAR COMPRA ALIMENTO</a></li>   
-                      <li><a href="{!!URL::to('categoria')!!}"> GASTOS</a></li>
-                      <li><a href="{!!URL::to('lista_egreso')!!}"> EGRESO</a></li>
-                      <li><a href="{!!URL::to('lista_ingreso')!!}"> INGRESO</a></li>  
-                      <li><a href="{!!URL::to('temperatura')!!}"> TEMPERATURA</a></li>  
-                      <li><a href="{!!URL::to('usuario')!!}"> USUARIO</a></li>                        
-                      <!--li><a href="Backup_Granja/php/">COPIA DE SEGURIDAD</a>  </li-->
-                  </ul>
-                </li>
+                  <li class="dropdown" >
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">Caja-Huevo<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{!!URL::to('maple')!!}">Maple</a></li>
+                        <li><a href="{!!URL::to('tipocaja')!!}">Tipo cajas</a></li>
+                        <li><a href="{!!URL::to('tipohuevo')!!}">Tipo huevo descarte</a></li> 
+                        <li><a href="{!!URL::to('lista_caja')!!}">Lista de cajas</a></li>     
+                        <li><a href="{!!URL::to('lista_maple')!!}">Lista de huevo descarte</a></li>  
+                    </ul>
+                  </li>
+                 <!-- <li class="dropdown" style="width: 8%;"> -->
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">Reporte<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{!!URL::to('reporteponedoras')!!}">Reporte postura</a></li>                                
+                        <li><a href="{!!URL::to('reportecaja')!!}">R. Venta cajas</a></li>                                      
+                        <li><a href="{!!URL::to('reportehuevo')!!}">R. Venta H. descarte</a></li>                                
+                        <li><a href="{!!URL::to('reporte_compra')!!}">R. Compra alimento</a></li>
+                        <li><a href="{!!URL::to('lista_gallinas')!!}">R. gallinas</a></li>     
+                        <li><a href="{!!URL::to('reportebalance')!!}">R. Genarl</a></li> 
+                        <li><a href="{!!URL::to('Rgrafico_postura2')!!}">R. Grafico</a></li>     
+                    </ul>
+                  </li>
+                  <li class="dropdown" >
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">Configuraciones<span class="caret"></span></a>
+                    <ul class="dropdown-menu">    
+                        <li><a href="{!!URL::to('fases')!!}">Reg. de Fases</a></li>
+                        <li><a href="{!!URL::to('silo')!!}">Reg. de Silo</a></li>
+                        <li><a href="{!!URL::to('vistagalpon')!!}">Reg. de Galpon</a></li>
+                        <li><a href="{!!URL::to('alimento')!!}">Reg. de Tipo de alimento</a></li>
+                        <li><a href="{!!URL::to('categoria')!!}">Reg. Tipo Ingreso o Egreso</a></li>
+                        <li><a href="{!!URL::to('lista_compra')!!}">Anular compra de alimento</a></li>   
+                        <li><a href="{!!URL::to('lista_egreso')!!}">Gestion Egreso</a></li>
+                        <li><a href="{!!URL::to('lista_ingreso')!!}">Gestion Ingreso</a></li>  
+                        <li><a href="{!!URL::to('temperatura')!!}">Gestion Temperatura</a></li>  
+                        <li><a href="{!!URL::to('usuario')!!}">Registro Usuario</a></li>                        
+                        <!--li><a href="Backup_Granja/php/">COPIA DE SEGURIDAD</a>  </li-->
+                    </ul>
+                  </li>
                 @endif 
+
               </ul>
-               <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
                  @if(Auth::user()==null) 
                    <li><a href="{!!URL::to('/')!!}" class="btn btn-success" style="color: white" > <i class="fa fa-user" aria-hidden="true"></i>  INICIAR </a></li>
                     @endif  
@@ -155,6 +150,7 @@
   {!!Html::script('js/alertify.js')!!}
   {!!Html::script('js/bootstrap-datetimepicker.min.js')!!}
   {!!Html::script('js/plugins/HERRAMIENTAS.js')!!}
+  {!!Html::script('plugins/select2/js/select2.js')!!}
    @yield('script')
     </body>
 </html>
